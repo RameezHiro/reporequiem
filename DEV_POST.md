@@ -95,6 +95,11 @@ The inference layer is deliberately boring: one POST to `/api/chat`, JSON mode,
 a timeout, and a fallback. No framework, no orchestration graph, no vector
 database. The hard part of this project is the archaeology, not the plumbing.
 
+One honest note about the screenshots below: they were taken on a machine with
+only a vision model and a code model installed. Both are poor narrators, so the
+picker skips them and the Archivist speaks the record. That is the fallback
+working as designed, not the model path missing.
+
 ## The graveyard
 
 Each buried file becomes a headstone. Open one and you get a certificate of
