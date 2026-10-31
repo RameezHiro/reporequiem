@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: reporequiem
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # No Ollama runs on the free instance, so the hosted demo uses the
+      # deterministic Archivist. Set LLM_ENABLED=true and point the OPENAI_*
+      # variables at an open-weight endpoint to give it a hosted voice.
+      - key: LLM_ENABLED
+        value: "false"
+      - key: MAX_COMMITS
+        value: "4000"
+      - key: MAX_SCANS
+        value: "8"
+      # Do not let a public instance read its own filesystem (or another
+      # visitor's clone). Local paths only make sense on your own machine.
+      - key: ALLOW_LOCAL_PATHS
+        value: "false"

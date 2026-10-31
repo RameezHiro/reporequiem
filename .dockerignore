@@ -1,0 +1,16 @@
+node_modules
+frontend/dist
+frontend/node_modules
+backend/.demo
+backend/__pycache__
+**/__pycache__
+*.pyc
+.venv
+venv
+.git
+.gitignore
+.env
+.env.local
+docs
+DEV_POST.md
+SUBMISSION.md
