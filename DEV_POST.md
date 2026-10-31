@@ -8,7 +8,7 @@ cover_image: "https://raw.githubusercontent.com/RameezHiro/reporequiem/main/docs
 
 <!--
 Draft notes (remove before publishing):
-- Upload the images in docs/screenshots/ to DEV and replace the relative paths.
+- Images are hotlinked from the public repository; they render on DEV as-is.
 - Read it once out loud; the voice should sound like you, not like a launch post.
 -->
 

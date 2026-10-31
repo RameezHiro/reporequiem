@@ -10,10 +10,10 @@ Deadline: **31 October 2026**
 - [x] Put the code on a public repository: <https://github.com/RameezHiro/reporequiem>.
 - [x] Add the repository URL to `DEV_POST.md`. There is no hosted demo; the post
       explains that the history stays local.
-- [ ] Upload `docs/screenshots/*.png` to DEV and replace the relative image paths.
-      The current screenshots show the **offline Archivist**. That is the honest
-      state of this machine: the installed models are a vision model and a code
-      model, both of which the picker now skips. Do not relabel them as model output.
+- [x] Images are hotlinked from `docs/screenshots/*.png` on the public repo. The
+      current screenshots show the **offline Archivist**. That is the honest state
+      of this machine: the installed models are a vision model and a code model,
+      both of which the picker now skips. Do not relabel them as model output.
 - [ ] Record a 20–40 second screen capture (optional but strong): open demo →
       graveyard → open a headstone → ask the séance one question.
 - [ ] Read `DEV_POST.md` out loud and rewrite anything that does not sound like you.
