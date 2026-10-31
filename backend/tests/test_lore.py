@@ -120,6 +120,22 @@ class PublicUrlTest(unittest.TestCase):
         )
 
 
+class ModelPickerTest(unittest.TestCase):
+    def test_vision_model_alone_is_skipped(self) -> None:
+        self.assertIsNone(lore._pick_model(["qwen3-vl:4b"]))
+
+    def test_coder_alone_is_skipped(self) -> None:
+        self.assertIsNone(lore._pick_model(["qwen2.5-coder:7b"]))
+
+    def test_instruct_model_beats_coder(self) -> None:
+        self.assertEqual(
+            lore._pick_model(["qwen2.5-coder:7b", "gemma3:4b"]), "gemma3:4b"
+        )
+
+    def test_text_thinking_model_is_usable(self) -> None:
+        self.assertEqual(lore._pick_model(["qwen3:8b"]), "qwen3:8b")
+
+
 class JsonBoundaryTest(unittest.TestCase):
     RECORD = {
         "meta": {

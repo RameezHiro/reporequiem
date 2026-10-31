@@ -53,7 +53,7 @@ séance that answers only from the same facts.
 Requirements: **Python 3.11+**, **Node 20+**, **git**, and optionally **Ollama**.
 
 ```bash
-git clone <this-repo> reporequiem
+git clone https://github.com/RameezHiro/reporequiem.git
 cd reporequiem
 
 # 1. Frontend
@@ -76,7 +76,7 @@ from one port. Add `?demo=1` to open the bundled haunted repository directly.
 ### The local model
 
 ```bash
-ollama pull qwen3-vl:4b     # or any instruct model you like
+ollama pull gemma3:4b       # or any small text instruct model
 ollama serve
 ```
 
@@ -89,10 +89,13 @@ $env:OLLAMA_MODEL = "gemma3:4b"
 export OLLAMA_MODEL="gemma3:4b"
 ```
 
-The picker prefers text instruct models. A thinking model can spend the whole
-token budget before it writes the record, so if you see the offline Archivist
-with a thinking model installed, force a non-thinking instruct model (for
-example `gemma3:4b`) with `OLLAMA_MODEL`.
+The picker prefers text instruct models and skips vision and code models, which
+write weak prose or spend the whole budget thinking. If only unsuitable models
+are installed, the Archivist reads the record immediately instead of making you
+wait for a model that cannot finish. A thinking text model can still spend the
+token budget before it writes anything, so if you see the offline Archivist with
+one installed, force a non-thinking instruct model (for example `gemma3:4b`)
+with `OLLAMA_MODEL`.
 
 If generation fails for any reason, the reading still completes and the record
 says **"facts only · no model"** rather than pretending.

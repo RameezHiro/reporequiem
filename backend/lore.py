@@ -97,8 +97,8 @@ def _pick_model(available: list[str]) -> str | None:
     def score(name: str) -> int:
         n = name.lower()
         s = 0
-        for family in ("qwen3", "gemma3", "gemma2", "llama3.1", "llama3", "mistral",
-                       "phi4", "phi3", "deepseek", "granite"):
+        for family in ("qwen3", "qwen2.5", "qwen2", "gemma3", "gemma2", "llama3.1",
+                       "llama3", "mistral", "phi4", "phi3", "deepseek", "granite"):
             if family in n:
                 s += 6
                 break
@@ -115,13 +115,19 @@ def _pick_model(available: list[str]) -> str | None:
             s -= 4
         return s
 
-    return max(available, key=score)
+    best = max(available, key=score)
+    # A vision or code model can spend the whole timeout before admitting it
+    # cannot write this. If nothing suitable is installed, fall back at once
+    # instead of making the visitor wait. OLLAMA_MODEL still forces a choice.
+    if score(best) <= 3:
+        return None
+    return best
 
 
 def _ollama_chat(messages: list[dict], json_mode: bool) -> str:
     model = _pick_model(_ollama_models())
     if not model:
-        raise ModelUnavailable("No Ollama model found")
+        raise ModelUnavailable("No suitable local model found")
     payload = {
         "model": model,
         "messages": messages,

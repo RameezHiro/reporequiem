@@ -3,13 +3,12 @@ title: "Every repository has ghosts: building RepoRequiem for Hacktoberfest Week
 published: false
 description: "A git archaeology tool that finds deleted files, revenants and cursed commits, then lets a local open-weight model speak for them — using only facts mined from git."
 tags: hf26challenge, ai, opensource, python
-cover_image: ""
+cover_image: "https://raw.githubusercontent.com/RameezHiro/reporequiem/main/docs/screenshots/hero-1440.png"
 ---
 
 <!--
 Draft notes (remove before publishing):
 - Upload the images in docs/screenshots/ to DEV and replace the relative paths.
-- Set the canonical repo URL and the live demo URL where marked TODO.
 - Read it once out loud; the voice should sound like you, not like a launch post.
 -->
 
@@ -26,7 +25,7 @@ reading is a haunted chatbot. I wanted the ghost to be something the machine was
 already carrying: the history it never shows you. So I built **RepoRequiem**, a
 git archaeology tool that exhumes a repository's dead and gives them a voice.
 
-![RepoRequiem landing page](docs/screenshots/landing-1440.png)
+![RepoRequiem landing page](https://raw.githubusercontent.com/RameezHiro/reporequiem/main/docs/screenshots/landing-1440.png)
 
 ## What it actually reads
 
@@ -52,7 +51,7 @@ On the bundled demo repository, that produces a record with 18 commits, 3
 authors, 8 buried files, one revenant, six cursed commits, one unmerged branch,
 and a CoffeeScript era that no longer exists anywhere in the working tree.
 
-![The dossier](docs/screenshots/hero-1440.png)
+![The dossier](https://raw.githubusercontent.com/RameezHiro/reporequiem/main/docs/screenshots/hero-1440.png)
 
 ## The rule: facts first, model second
 
@@ -102,7 +101,7 @@ Each buried file becomes a headstone. Open one and you get a certificate of
 removal: born, died, lifespan in days, churn, the hand that removed it, the
 commit message, and the last lines of the file as they were.
 
-![The graveyard](docs/screenshots/grave-1440.png)
+![The graveyard](https://raw.githubusercontent.com/RameezHiro/reporequiem/main/docs/screenshots/grave-1440.png)
 
 The details are what make it feel like a place rather than a dashboard. A file
 that lived for 82 days and was killed by a commit called "Retire CoffeeScript,
@@ -121,7 +120,7 @@ You can ask the archive questions. The retrieval step is intentionally simple:
 match the question against file paths, authors, and the facts block, then give
 the model only the matching evidence and the record.
 
-![The séance](docs/screenshots/seance-1440.png)
+![The séance](https://raw.githubusercontent.com/RameezHiro/reporequiem/main/docs/screenshots/seance-1440.png)
 
 If the model is unavailable, the séance answers from the same retrieved facts
 directly. If the record does not say, it says that. "The record does not say
@@ -154,18 +153,20 @@ mono. The voice is set in italic. You can tell which is which without a legend.
 
 ## Run it
 
-TODO: repository URL and live demo URL.
+The source is at **<https://github.com/RameezHiro/reporequiem>**. There is no
+hosted demo: the point is that the history never leaves the machine. Clone it
+and run it locally.
 
 ```bash
-git clone <repo>
+git clone https://github.com/RameezHiro/reporequiem.git
 cd reporequiem/frontend && npm install && npm run build
 cd ../backend && pip install -r requirements.txt
 uvicorn main:app --port 8000
 ```
 
 Open `http://127.0.0.1:8000`, or add `?demo=1` to walk straight into the bundled
-haunted repository. If you have Ollama running, it will pick a model; if you do
-not, the Archivist will read the record anyway.
+haunted repository. If you have Ollama running with a suitable text model, it
+will pick one; if you do not, the Archivist will read the record anyway.
 
 The stack is deliberately small: FastAPI, React, Vite, Tailwind. No database, no
 accounts, no telemetry. Scans live in memory and expire. Public clones are
