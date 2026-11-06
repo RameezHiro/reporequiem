@@ -3,7 +3,9 @@
 Target: **DEV Hacktoberfest 2026 — Week 4: Ghost in the Machine**
 Challenge: <https://dev.to/challenges/hacktoberfest-week4-2026-10-26>
 Required tag: `#hf26challenge`
-Deadline: **31 October 2026**
+Deadline: **31 October 2026** — the challenge has since **ended**, so the post now
+goes out as a regular article. Tags were changed to `hacktoberfest, ai, opensource,
+python`, and the closing line says the post is not a judged entry.
 
 ## Before publishing
 
@@ -17,7 +19,7 @@ Deadline: **31 October 2026**
 - [ ] Record a 20–40 second screen capture (optional but strong): open demo →
       graveyard → open a headstone → ask the séance one question.
 - [ ] Read `DEV_POST.md` out loud and rewrite anything that does not sound like you.
-- [ ] Confirm the tags: `hf26challenge`, plus up to three others.
+- [x] Confirm the tags: `hacktoberfest`, `ai`, `opensource`, `python` (DEV allows four).
 
 ## What the judges are scoring
 
@@ -67,13 +69,25 @@ curl -s -X POST http://127.0.0.1:8000/api/demo
 
 ## Publish on DEV
 
-1. New post → paste `DEV_POST.md` (front matter is optional on DEV; set the title,
-   description, tags and cover image in the editor instead).
-2. Add the `#hf26challenge` tag. The editor may suggest `#hacktoberfest`; DEV allows
-   four tags total.
-3. Preview the images and the code blocks on mobile.
-4. Publish, then add the post URL to the challenge submission field if one is
-   present.
+Either path works; both read the same `DEV_POST.md`.
+
+**Script (no copy/paste).** Create a key at
+<https://dev.to/settings/extensions> ("DEV Community API Keys"), then:
+
+```powershell
+$env:DEV_API_KEY = "your-key"
+python scripts/publish_dev.py --draft   # review at dev.to/dashboard
+python scripts/publish_dev.py           # publish live
+```
+
+The front matter supplies the title, description, tags and cover image. The key is
+read from the environment and never written to disk.
+
+**Editor.** New post → paste the body of `DEV_POST.md` and set the title,
+description, tags (`hacktoberfest`, `ai`, `opensource`, `python`) and cover image
+(`docs/screenshots/hero-1440.png` raw URL) by hand.
+
+Either way: preview the images and code blocks on mobile before publishing.
 
 ## Honest limitations to keep in the post
 

@@ -2,15 +2,9 @@
 title: "Every repository has ghosts: building RepoRequiem for Hacktoberfest Week 4"
 published: false
 description: "A git archaeology tool that finds deleted files, revenants and cursed commits, then lets a local open-weight model speak for them — using only facts mined from git."
-tags: hf26challenge, ai, opensource, python
+tags: hacktoberfest, ai, opensource, python
 cover_image: "https://raw.githubusercontent.com/RameezHiro/reporequiem/main/docs/screenshots/hero-1440.png"
 ---
-
-<!--
-Draft notes (remove before publishing):
-- Images are hotlinked from the public repository; they render on DEV as-is.
-- Read it once out loud; the voice should sound like you, not like a launch post.
--->
 
 There is a commit in almost every repository that nobody wants to read.
 
@@ -190,7 +184,7 @@ knows what it lost. RepoRequiem just makes it say so.
 
 ---
 
-*Built for the [DEV Hacktoberfest 2026 Week 4 challenge](https://dev.to/challenges/hacktoberfest-week4-2026-10-26) — "Ghost in the Machine" — tagged `#hf26challenge`.*
+*Written for the [DEV Hacktoberfest 2026 Week 4 challenge](https://dev.to/challenges/hacktoberfest-week4-2026-10-26) — "Ghost in the Machine." The challenge closed on October 31, 2026, so this is shared as a regular post rather than a judged entry.*
 
 *AI disclosure: I used an AI coding assistant to pair on the implementation and
 to help draft this post. Every claim about the app was checked against the
